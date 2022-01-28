@@ -1,0 +1,237 @@
+@startuml
+class com.company.PursuerShortyPart2TimerTask {
+- DogWhoCanBeAPurpose dogWhoCanBeAPurpose1
+- DogWhoCanBeAPurpose dogWhoCanBeAPurpose2
+- ShortyWhoCanBeAPursuer shortyWhoCanBeAPursuer
+- StrawberryGardens strawberryGardens
++ void run()
+}
+interface com.company.CanRun {
++ void toRun()
++ double getSpeed()
++ void setSpeed(double)
+}
+interface com.company.CanBeAPursuer {
++ void toCheckTheDistanceToThePurpose(CanBeAPurpose)
++ double getDistanceToThePurpose()
++ void setDistanceToThePurpose(double)
++ double getSpeed()
++ void getHurtByPurpose(double)
+}
+class com.company.Case {
+- Timer timer
++ String toString()
++ void toTakeAnUnwantedTurn(DogWhoCanBeAPurpose,DogWhoCanBeAPurpose,ShortyWhoCanBeAPursuer,Home,Shorty,Shorty,StrawberryGardens)
++ void setTimer(DogWhoCanBeAPurpose,DogWhoCanBeAPurpose,ShortyWhoCanBeAPursuer,Home,StrawberryGardens)
+}
+class com.company.PurposeDogTimerTask {
+- CanBeAPurpose canBeAPurpose
+- CanBeAPursuer canBeAPursuer
++ void run()
+}
+class com.company.PursuerShortyTimerTask {
+- DogWhoCanBeAPurpose dogWhoCanBeAPurpose
+- ShortyWhoCanBeAPursuer shortyWhoCanBeAPursuer
+- Home home
+- boolean moment
++ void run()
+}
+class com.company.ReinforcementArrivesTimerTask {
+- ShortyWhoCanBeAPursuer shortyWhoCanBeAPursuer
++ void run()
+}
+class com.company.StrawberryGardens {
+~ String description
++ void beDamaged(CanRun,String)
++ int hashCode()
++ String toString()
++ boolean equals(Object)
+}
+interface com.company.Reinforcement {
++ void toArrive()
+}
+enum com.company.WayToBeRippedOut {
++  WITH_ROOT
++  WITHOUT_ROOT
+}
+interface com.company.Building {
++ void addFlowerBedToTheEnvironment(FlowerBed)
+}
+class com.company.FlowerBed {
+- Flowers typeOfFlowers
+- int number
++ int hashCode()
++ String toString()
++ boolean equals(Object)
++ void beDamaged(CanRun,String)
++ void beRippedOut(WayToBeRippedOut,FromWhatToBeRippedOut,CanRun)
+}
+abstract class com.company.Situation {
+# long timeToStart
++ void toTakeAnUnwantedTurn(DogWhoCanBeAPurpose,ShortyWhoCanBeAPursuer,Home,Shorty)
+}
+class com.company.Dog {
+# String name
+- double speed
+- boolean chain
+- double distanceTravelled
+- double damage
+- String appearance
+- double potentialSpeed
++ String toString()
++ int hashCode()
++ boolean equals(Object)
++ void untieTheChain(Shorty)
++ double getDamage()
++ void damageTheFlowerBed(FlowerBed,WayToBeRippedOut,FromWhatToBeRippedOut)
++ void toRunAroundTheHome(Home)
++ void toRun()
++ double getSpeed()
++ void setSpeed(double)
++ void toBite(CanBeAPursuer)
++ void toRunOnStrawberryField(StrawberryGardens,double)
+}
+class com.company.DogWhoCanBeAPurpose {
+- double distanceToThePursuer
+- double preoccupationWithTheSituation
+- double timeOfRunning
++ double getDistanceToThePursuer()
++ double getPreoccupationWithTheSituation()
++ void setPreoccupationWithTheSituation(double)
++ void setDistanceToThePursuer(double)
++ double getTimeOfRunning()
++ void setTimeOfRunning(double)
++ void runForOrCatchingUp(CanBeAPursuer)
++ void toCatchUp(CanBeAPursuer)
+}
+interface com.company.TerritoryDecoration {
++ void beDamaged(CanRun,String)
+}
+class com.company.Main {
++ {static} void main(String[])
+}
+class com.company.PurposeDogPart2TimerTask {
+- DogWhoCanBeAPurpose dogWhoCanBeAPurpose
+- ShortyWhoCanBeAPursuer shortyWhoCanBeAPursuer
++ void run()
+}
+class com.company.WrongSpeedInputException {
+}
+class com.company.Shorty {
+- {static} double minHp
+- {static} double maxHp
+- double hp
+- double speed
+# String name
+- double distanceTravelled
+- double potentialSpeed
+~ Hands hands
++ int hashCode()
++ String toString()
++ boolean equals(Object)
++ double getPotentialSpeed()
++ void setHp(double)
++ void tieShortyWhoCanBeAPursuerHands(Shorty)
++ void untieShortyWhoCanBeAPursuerHands(ShortyWhoCanBeAPursuer)
++ void getHurt(double)
++ double getSpeed()
++ void setSpeed(double)
++ void untieTheDogChain(Dog)
++ void toRun()
++ void damageTheFlowerBed(FlowerBed,WayToBeRippedOut,FromWhatToBeRippedOut)
++ void toRunAroundTheHome(Home)
++ void toRunOnStrawberryField(StrawberryGardens,double)
+}
+class com.company.Shorty.Parameter {
++ {static} double getMinHp()
++ {static} double getMAxHp()
+}
+class com.company.Shorty.Hands {
+- boolean beBound
++ void setBeBound(boolean)
++ boolean getBeBound()
+}
+class com.company.ShortyCannotDieException {
+}
+class com.company.Home {
+- int countOfFlowerBeds
+- ArrayList<FlowerBed> environment
++ int hashCode()
++ String toString()
++ boolean equals(Object)
++ int getSizeOfEnvironment()
++ FlowerBed getFlowerBedElement(int)
++ void addFlowerBedToTheEnvironment(FlowerBed)
+}
+interface com.company.CanBeAPurpose {
++ void runForOrCatchingUp(CanBeAPursuer)
++ void toCatchUp(CanBeAPursuer)
++ double getDistanceToThePursuer()
++ void setDistanceToThePursuer(double)
++ void setTimeOfRunning(double)
++ double getTimeOfRunning()
+}
+enum com.company.FromWhatToBeRippedOut {
++  FROM_HANDS
++  FROM_LEGS
+}
+class com.company.ShortyWhoCanBeAPursuer {
+- double potentialSpeed
+- double hp
+- double distanceToThePurpose
+- double speed
+- double preoccupationWithTheSituation
+- double timeOfRunning
++ double getPotentialSpeed()
++ void setSpeed(double)
++ double getPreoccupationWithTheSituation()
++ void setPreoccupationWithTheSituation(double)
++ double getTimeOfRunning()
++ void setTimeOfRunning(double)
++ double getSpeed()
++ void getHurtByPurpose(double)
++ void toThrowYourselfFromTheHill()
++ void toCheckTheDistanceToThePurpose(CanBeAPurpose)
++ double getDistanceToThePurpose()
++ void setDistanceToThePurpose(double)
+}
+enum com.company.WayOfRunning {
++  AROUND_THE_HOUSE
++  AWAY
++  AROUND_SOMETHING_ELSE
+}
+interface com.company.Reception {
++ {static} void doReception(ShortyWhoCanBeAPursuer,DogWhoCanBeAPurpose)
+}
+class com.company.TurnAside {
++ void doReception(CanBeAPursuer,CanBeAPurpose)
+}
+enum com.company.Flowers {
++  DAISY
++  CHAMOMILE
++  TULIP
++  PANSY
+}
+
+
+java.util.TimerTask <|-- com.company.PursuerShortyPart2TimerTask
+com.company.Situation <|-- com.company.Case
+java.util.TimerTask <|-- com.company.PurposeDogTimerTask
+java.util.TimerTask <|-- com.company.PursuerShortyTimerTask
+java.util.TimerTask <|-- com.company.ReinforcementArrivesTimerTask
+com.company.TerritoryDecoration <|.. com.company.StrawberryGardens
+com.company.TerritoryDecoration <|.. com.company.FlowerBed
+com.company.CanRun <|.. com.company.Dog
+com.company.CanBeAPurpose <|.. com.company.DogWhoCanBeAPurpose
+com.company.Dog <|-- com.company.DogWhoCanBeAPurpose
+java.util.TimerTask <|-- com.company.PurposeDogPart2TimerTask
+com.company.RuntimeException <|-- com.company.WrongSpeedInputException
+com.company.CanRun <|.. com.company.Shorty
+com.company.Shorty +.. com.company.Shorty.Parameter
+com.company.Shorty +.. com.company.Shorty.Hands
+com.company.Exception <|-- com.company.ShortyCannotDieException
+com.company.Building <|.. com.company.Home
+com.company.CanBeAPursuer <|.. com.company.ShortyWhoCanBeAPursuer
+com.company.Shorty <|-- com.company.ShortyWhoCanBeAPursuer
+com.company.Reception <|.. com.company.TurnAside
+@enduml
